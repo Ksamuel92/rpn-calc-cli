@@ -9,7 +9,7 @@ module.exports = ({ clear = true }) => {
 		tagLine: `by Kyle Samuel`,
 		description: pkg.description,
 		version: pkg.version,
-		bgColor: '#36BB09',
+		bgColor: '#0072CE',
 		color: '#000000',
 		bold: true,
 		clear
