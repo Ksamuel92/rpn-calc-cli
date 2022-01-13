@@ -15,6 +15,8 @@ const input = cli.input;
 const flags = cli.flags;
 const { clear, debug } = flags;
 
+const handleRpnCalculation = input => {};
+
 (async () => {
 	init({ clear });
 	input.includes(`help`) && cli.showHelp(0);
