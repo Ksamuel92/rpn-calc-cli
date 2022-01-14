@@ -15,32 +15,25 @@ const inquirer = require('inquirer');
 const input = cli.input;
 const flags = cli.flags;
 const { clear, debug } = flags;
-const regexValidator = /[*/+-.]|[0-9]/;
+const regexValidator = /[*/+-.]|[0-9]/; // Checks for valid operators and digits
 
-const handleRpnCalculation = input => {};
+const validateUserInput = async userInput => {
+	const isValid = userInput.every(element => element.match(regexValidator));
+	return isValid;
+};
 
 (async () => {
 	init({ clear });
-	inquirer.prompt([
+	const userAnswer = await inquirer.prompt([
 		{
 			type: 'input',
 			name: 'setToCalculate',
 			message: 'Input in Reverse Polish notation.',
 			filter: userInput => userInput.split(' '),
-			validate: userInput =>
-				userInput.every(element =>
-					element.match(regexValidator)
-						? console.log(userInput)
-						: console.log('nah FAM')
-				)
+			validate: validateUserInput
 		}
 	]);
-	// .then(userAnswer =>
-	// 	userAnswer.setToCalculate
-	// 		// ? console.log(userAnswer.setToCalculate)
-	// 		: console.log('No')
-	// );
-
+	console.log(userAnswer);
 	input.includes(`help`) && cli.showHelp(0);
 	debug && log(flags);
 })();
