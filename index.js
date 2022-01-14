@@ -11,6 +11,7 @@ const init = require('./utils/init');
 const cli = require('./utils/cli');
 const log = require('./utils/log');
 const inquirer = require('inquirer');
+const parseUserInput = require('./lib/calc');
 
 const input = cli.input;
 const flags = cli.flags;
@@ -27,13 +28,14 @@ const validateUserInput = async userInput => {
 	const userAnswer = await inquirer.prompt([
 		{
 			type: 'input',
-			name: 'setToCalculate',
+			name: 'userInputArray',
 			message: 'Input in Reverse Polish notation.',
 			filter: userInput => userInput.split(' '),
 			validate: validateUserInput
 		}
 	]);
-	console.log(userAnswer);
+	const { userInputArray } = userAnswer;
+
 	input.includes(`help`) && cli.showHelp(0);
 	debug && log(flags);
 })();
