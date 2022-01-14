@@ -25,7 +25,7 @@ const validateUserInput = async userInput => {
 
 (async () => {
 	init({ clear });
-	const userAnswer = await inquirer.prompt([
+	const userInput = await inquirer.prompt([
 		{
 			type: 'input',
 			name: 'userInputArray',
@@ -34,8 +34,9 @@ const validateUserInput = async userInput => {
 			validate: validateUserInput
 		}
 	]);
-	const { userInputArray } = userAnswer;
-
+	const { userInputArray } = await userInput;
+	const { callStack, currentAnswer } = await parseUserInput(userInputArray);
+	console.log(callStack, currentAnswer);
 	input.includes(`help`) && cli.showHelp(0);
 	debug && log(flags);
 })();
