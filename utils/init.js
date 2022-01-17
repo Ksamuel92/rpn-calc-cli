@@ -2,7 +2,7 @@ const welcome = require('cli-welcome');
 const pkg = require('./../package.json');
 const unhandled = require('cli-handle-unhandled');
 
-module.exports = ({ clear = true }) => {
+module.exports = () => {
 	unhandled();
 	welcome({
 		title: `rpn-calculator-cli`,
@@ -11,7 +11,6 @@ module.exports = ({ clear = true }) => {
 		version: pkg.version,
 		bgColor: '#0072CE',
 		color: '#000000',
-		bold: true,
-		clear
+		bold: true
 	});
 };
