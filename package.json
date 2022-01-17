@@ -1,6 +1,6 @@
 {
 	"name": "rpn-calculator-cli",
-	"description": "A Reverse Polish notation calculator built with Javascript",
+	"description": "A Reverse Polish notation calculator built with Javascript. Input 'ac' to clear history or 'q' to exit.",
 	"version": "0.0.1",
 	"license": "MIT",
 	"bin": {
