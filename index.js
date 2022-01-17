@@ -15,7 +15,7 @@ const parseUserInput = require('./lib/calc');
 
 const input = cli.input;
 const flags = cli.flags;
-const { clear, debug } = flags;
+const { debug } = flags;
 const regexValidator = /[*/+-.]|[0-9]/; // Checks for valid operators and digits
 
 const validateUserInput = async userInput => {
@@ -34,21 +34,23 @@ const questions = {
 	validate: validateUserInput
 };
 
-const calculator = async (userCallStack = []) => {
-	if (userCallStack.length === 0) init({ clear });
+const calculator = async (isInitialized = false, userCallStack = []) => {
+	if (!isInitialized) init();
 	input.includes(`help`) && cli.showHelp(0);
 	debug && log(flags);
 
+	isInitialized = true;
 	const { userInputArray } = await inquirer.prompt([questions]);
 
 	if (userInputArray.includes('q')) return;
-	if (userInputArray.includes('ac')) return calculator([0]);
+	if (userInputArray.includes('ac')) return calculator(isInitialized);
 
 	const { currentCallStack, currentAnswer } = await parseUserInput(
 		userInputArray,
 		userCallStack
 	);
+	if (currentAnswer === undefined) return calculator(isInitialized);
 	console.log(currentAnswer);
-	calculator(currentCallStack);
+	calculator(isInitialized, currentCallStack);
 };
 calculator();
