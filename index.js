@@ -39,8 +39,6 @@ const calculator = async (userCallStack = []) => {
 	input.includes(`help`) && cli.showHelp(0);
 	debug && log(flags);
 
-	console.log(userCallStack);
-
 	const { userInputArray } = await inquirer.prompt([questions]);
 
 	if (userInputArray.includes('q')) return;
