@@ -38,10 +38,14 @@ const calculator = async (userCallStack = []) => {
 	if (userCallStack.length === 0) init({ clear });
 	input.includes(`help`) && cli.showHelp(0);
 	debug && log(flags);
+
+	console.log(userCallStack);
+
 	const { userInputArray } = await inquirer.prompt([questions]);
+
 	if (userInputArray.includes('q')) return;
-	if (userInputArray.includes('ac'))
-		return (userCallStack = [0] && calculator(userCallStack));
+	if (userInputArray.includes('ac')) return calculator([0]);
+
 	const { currentCallStack, currentAnswer } = await parseUserInput(
 		userInputArray,
 		userCallStack
