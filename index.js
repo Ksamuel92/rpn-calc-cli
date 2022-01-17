@@ -23,20 +23,25 @@ const validateUserInput = async userInput => {
 	return isValid;
 };
 
-(async () => {
-	init({ clear });
-	const userInput = await inquirer.prompt([
-		{
-			type: 'input',
-			name: 'userInputArray',
-			message: 'Input in Reverse Polish notation.',
-			filter: userInput => userInput.split(' '),
-			validate: validateUserInput
-		}
-	]);
-	const { userInputArray } = await userInput;
-	const { callStack, currentAnswer } = await parseUserInput(userInputArray);
-	console.log(callStack, currentAnswer);
+const questions = {
+	type: 'input',
+	name: 'userInputArray',
+	message: 'Input in Reverse Polish notation.',
+	filter: userInput => userInput.split(' '),
+	validate: validateUserInput
+};
+
+const calculator = async (userCallStack = []) => {
+	if (userCallStack.length === 0) init({ clear });
 	input.includes(`help`) && cli.showHelp(0);
 	debug && log(flags);
-})();
+	const userInput = await inquirer.prompt([questions]);
+	const { userInputArray } = await userInput;
+	const { currentCallStack, currentAnswer } = await parseUserInput(
+		userInputArray,
+		userCallStack
+	);
+	console.log(currentAnswer);
+	calculator(currentCallStack);
+};
+calculator();
