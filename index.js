@@ -20,7 +20,8 @@ const regexValidator = /[*/+-.]|[0-9]/; // Checks for valid operators and digits
 
 const validateUserInput = async userInput => {
 	const isValid = userInput.every(
-		element => element.match(regexValidator) || element === 'q'
+		element =>
+			element.match(regexValidator) || element === 'q' || element === 'ac'
 	);
 	return isValid;
 };
@@ -39,7 +40,8 @@ const calculator = async (userCallStack = []) => {
 	debug && log(flags);
 	const { userInputArray } = await inquirer.prompt([questions]);
 	if (userInputArray.includes('q')) return;
-
+	if (userInputArray.includes('ac'))
+		return (userCallStack = [0] && calculator(userCallStack));
 	const { currentCallStack, currentAnswer } = await parseUserInput(
 		userInputArray,
 		userCallStack
