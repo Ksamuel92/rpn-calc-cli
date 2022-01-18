@@ -7,9 +7,9 @@ const mathOperators = {
 	'/': (a, b) => a / b
 };
 
-const popTwoElementsOff = callStack => {
-	const b = callStack.pop();
-	const a = callStack.pop();
+const popTwoElementsOff = stack => {
+	const b = stack.pop();
+	const a = stack.pop();
 	return [a, b];
 };
 
@@ -19,15 +19,15 @@ const isOperator = element => {
 	return validOperators(mathOperators).includes(element);
 };
 
-const handleOperator = (operator, callStack) => {
-	if (callStack.length >= 2 && mathOperators[operator]) {
-		const [a, b] = popTwoElementsOff(callStack);
+const pushCalculationToStack = (operator, stack) => {
+	if (stack.length >= 2 && mathOperators[operator]) {
+		const [a, b] = popTwoElementsOff(stack);
 		const operationResult = mathOperators[operator](a, b);
-		callStack.push(operationResult);
+		stack.push(operationResult);
 	}
 };
 
 module.exports = {
 	isOperator,
-	handleOperator
+	pushCalculationToStack
 };
