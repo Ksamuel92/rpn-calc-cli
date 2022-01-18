@@ -17,7 +17,7 @@ const pushCalculationToStack = (operator, stack) => {
 		return stack;
 	} else {
 		console.error(
-			'Check if stack contains two elements and has a valid operator'
+			'Stack contains less than two elements, add another number!'
 		);
 	}
 };
