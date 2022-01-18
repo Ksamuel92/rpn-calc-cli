@@ -13,6 +13,11 @@ const flags = {
 		default: false,
 		desc: `Don't clear the console`
 	},
+	showStack: {
+		type: `boolean`,
+		default: false,
+		desc: `Show stack while using app.`
+	},
 	debug: {
 		type: `boolean`,
 		default: false,
