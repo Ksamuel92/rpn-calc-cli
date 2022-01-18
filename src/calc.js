@@ -21,8 +21,8 @@ const parseUserInput = (userInputArray, currentStack = []) => {
 		return parseUserInput(userInputArray, currentStack);
 	}
 	if (isOperator(element)) {
-		pushCalculationToStack(element, currentStack);
-		return parseUserInput(userInputArray, currentStack);
+		const newStack = pushCalculationToStack(element, currentStack);
+		return parseUserInput(userInputArray, newStack);
 	}
 
 	return { currentStack, currentAnswer: 'Invalid user input' };
