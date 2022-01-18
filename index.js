@@ -16,7 +16,7 @@ const { run } = require('jest');
 
 const input = cli.input;
 const flags = cli.flags;
-const { debug } = flags;
+const { debug, showStack } = flags;
 const regexValidator = /[*/+-.]|[0-9]/; // Checks for valid operators and digits
 
 const validateUserInput = async userInput => {
@@ -52,7 +52,15 @@ const calculator = async (isInitialized = false, userStack = []) => {
 		userStack
 	);
 	if (currentAnswer === undefined) return calculator(isInitialized);
-	console.log(currentAnswer);
+
+	showStack
+		? console.log(
+				'Current Answer:',
+				currentAnswer,
+				'Current Stack:',
+				currentStack
+		  )
+		: console.log('Current Answer:', currentAnswer);
 	calculator(isInitialized, currentStack);
 };
 
