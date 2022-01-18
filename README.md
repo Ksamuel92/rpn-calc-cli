@@ -21,7 +21,6 @@ npm i -g rpn-calculator-cli
 ```bash
 calculate
 ```
-!['image of CLI'](./assets/Screen Shot 2022-01-18 at 3.58.40 PM.png)
 
 Put spaces between each operator and/or operand. The calculator will accept as many or as few elments as you wish to input at once.
 ```bash
