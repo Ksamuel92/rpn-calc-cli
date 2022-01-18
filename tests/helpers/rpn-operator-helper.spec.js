@@ -22,7 +22,7 @@ describe('rpn-operator-helper', () => {
 		pushCalculationToStack(operator, stack);
 		expect(console.error).toBeCalledTimes(1);
 		expect(console.error).toHaveBeenLastCalledWith(
-			'Check if stack contains two elements and has a valid operator'
+			'Stack contains less than two elements, add another number!'
 		);
 	});
 });
