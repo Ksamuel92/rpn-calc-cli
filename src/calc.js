@@ -1,26 +1,32 @@
-const handleNumber = require('./handle-number');
-const isNumber = require('./is-number');
-const { isOperator, handleOperator } = require('./rpn-operator-helper');
+const { handleNumber: pushNumberToStack } = require('./helpers/handle-number');
+const { isNumber } = require('./helpers/is-number');
+const {
+	isOperator,
+	pushCalculationToStack
+} = require('./helpers/rpn-operator-helper');
 
-const parseUserInput = (userInputArray, callStack = []) => {
-	if (userInputArray.length === 0)
+const parseUserInput = (userInputArray, currentStack = []) => {
+	const currentAnswer = currentStack[currentStack.length - 1];
+
+	if (userInputArray.length === 0) {
 		return {
-			currentCallStack: callStack,
-			currentAnswer: callStack[callStack.length - 1]
+			currentStack,
+			currentAnswer
 		};
+	}
 
 	const element = userInputArray.shift();
 
 	if (isNumber(element)) {
-		handleNumber(element, callStack);
-		return parseUserInput(userInputArray, callStack);
+		pushNumberToStack(element, currentStack);
+		return parseUserInput(userInputArray, currentStack);
 	}
 	if (isOperator(element)) {
-		handleOperator(element, callStack);
-		return parseUserInput(userInputArray, callStack);
+		pushCalculationToStack(element, currentStack);
+		return parseUserInput(userInputArray, currentStack);
 	}
 
-	return { currentCallStack: callStack, currentAnswer: 'Invalid user input' };
+	return { currentStack, currentAnswer: 'Invalid user input' };
 };
 
 module.exports = parseUserInput;
