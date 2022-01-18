@@ -6,9 +6,8 @@ const {
 } = require('./helpers/rpn-operator-helper');
 
 const parseUserInput = (userInputArray, currentStack = []) => {
-	const currentAnswer = currentStack[currentStack.length - 1];
-
 	if (userInputArray.length === 0) {
+		const currentAnswer = currentStack[currentStack.length - 1];
 		return {
 			currentStack,
 			currentAnswer
