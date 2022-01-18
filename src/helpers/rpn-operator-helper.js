@@ -1,3 +1,4 @@
+const { popTwoElementsOff } = require('./pop-two-elements-off');
 //Validates and processes user inputted operators for a Reverse Polish notation style calculator.
 
 const mathOperators = {
@@ -5,12 +6,6 @@ const mathOperators = {
 	'-': (a, b) => a - b,
 	'*': (a, b) => a * b,
 	'/': (a, b) => a / b
-};
-
-const popTwoElementsOff = stack => {
-	const b = stack.pop();
-	const a = stack.pop();
-	return [a, b];
 };
 
 const validOperators = mathOperators => Object.keys(mathOperators);
