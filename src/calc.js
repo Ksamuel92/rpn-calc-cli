@@ -1,10 +1,6 @@
-const {
-	validOperators,
-	isNumber,
-	isOperator,
-	handleNumber,
-	handleOperator
-} = require('./helpers');
+const handleNumber = require('./handle-number');
+const isNumber = require('./is-number');
+const { isOperator, handleOperator } = require('./rpn-operator-helper');
 
 const parseUserInput = (userInputArray, callStack = []) => {
 	if (userInputArray.length === 0)
@@ -19,7 +15,7 @@ const parseUserInput = (userInputArray, callStack = []) => {
 		handleNumber(element, callStack);
 		return parseUserInput(userInputArray, callStack);
 	}
-	if (isOperator(element, validOperators)) {
+	if (isOperator(element)) {
 		handleOperator(element, callStack);
 		return parseUserInput(userInputArray, callStack);
 	}
