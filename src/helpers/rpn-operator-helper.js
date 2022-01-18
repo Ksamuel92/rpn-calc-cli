@@ -14,6 +14,11 @@ const pushCalculationToStack = (operator, stack) => {
 		const [a, b] = popTwoElementsOff(stack);
 		const operationResult = validMathOperators[operator](a, b);
 		stack.push(operationResult);
+		return stack;
+	} else {
+		console.error(
+			'Check if stack contains two elements and has a valid operator'
+		);
 	}
 };
 
