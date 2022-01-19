@@ -37,7 +37,7 @@ const iterateInputs = numberArray => {
 	const {
 		currentStack: firstIterationCS,
 		currentAnswer: firstIterationAnswer
-	} = parseUserInput([array]);
+	} = parseUserInput([numberArray]);
 
 	const { currentStack: secondIterationCS } = parseUserInput(
 		[firstIterationAnswer],
