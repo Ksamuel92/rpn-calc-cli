@@ -1,4 +1,4 @@
-# rpn-calculator-cli
+# rpn-calc-cli
 
 An interactive command line Reverse Polar notation calculator built in Node.js.
 
@@ -13,12 +13,12 @@ Calculations are made by pushing numbers onto a stack. Everytime a mathematical 
 Before you continue, make sure you meet the following requirements:
 
 -   Node.js 16.11.1
--   Npm 8.1.1
+-   npm 8.1.1
 
 ## Install
 
 ```bash
-npm i -g rpn-calculator-cli
+npm i -g rpn-calc-cli
 ```
 
 ## Usage
@@ -27,7 +27,7 @@ npm i -g rpn-calculator-cli
 calculate <flags>
 ```
 
-Put spaces between each operator and/or operand. The calculator will accept as many or as few elments as you wish to input at once.
+Put a space after each operator and/or operand. The calculator will accept as many or as few elments as you wish to input at once.
 
 ```bash
 >> 3 3 +
@@ -41,16 +41,18 @@ Put spaces between each operator and/or operand. The calculator will accept as m
 > 6
 ```
 
+You can also input 'ac' to clear the stack and 'q' to exit the program.
+
 Calling calculate with a --showStack flag will show you the stack as you push numbers and evaluations onto it. Even if you don't call the flag, the app will let you know if the stack is too short to be evaluated.
 
-## Contributing to rpn-calculator-cli
+## Contributing to rpn-calc-cli
 
-To contribute to rpn-calculator-cli, follow these steps:
+To contribute to rpn-calc-cli, follow these steps:
 
 -   Fork this repository.
 -   Create a branch: git checkout -b <branch_name>.
 -   Make your changes and commit them: git commit -m '<commit_message>'
--   Push to the original branch: git push origin rpn-calculator-cli
+-   Push to the original branch: git push origin rpn-calc-cli
 -   Create the pull request.
 -   Alternatively see the GitHub documentation on creating a pull request.
 
@@ -66,7 +68,7 @@ Finally, my modules are structured to separate number and operator logic. While 
 
 ## Roadmap
 
-While I am proud of the project, there are several steps to make it even better. Implementing more operators would be at the top of my list, as the current crop only covers basic addition, subtraction, division, and multiplication. In addition, while I was able to unit test all the logic and modules in the src folder, I was unable to figure out how to do integration testing with the CLI frontend itself. Simulating user input proved to be difficult and, unfortunately, the solutions coming up online weren't effective. I emailed some developer friends for help as well as stubbed out a fake test that I look forward to filling out with actual logic. 
+While I am proud of the project, there are several steps to make it even better. Implementing more operators would be at the top of my list, as the current crop only covers basic addition, subtraction, division, and multiplication. In addition, while I was able to unit test all the logic and modules in the src folder, I was unable to figure out how to do integration testing with the CLI frontend itself. Simulating user input proved to be difficult and, unfortunately, the solutions coming up online weren't effective. I emailed some developer friends for help as well as stubbed out a fake test that I look forward to filling out with actual logic.
 
 I had a great time doing a more functional programming approach, but it would be fun to break down the logic with object-oriented concepts, like a static all object in a class to maintain state within the backend. As I was learning as I went, functional programming allowed me to stay with the flow of the overall program, which kept me grounded while sifting through the weeds.
 
