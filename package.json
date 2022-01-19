@@ -12,6 +12,10 @@
 		"email": "Ksamuel92@gmail.com",
 		"url": "www.github.com/Ksamuel92"
 	},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ksamuel92/rpn-calculator-cli"
+  },
 	"keywords": [
 		"rpn-calculator-cli",
 		"Kyle Samuel"
