@@ -7,7 +7,8 @@ module.exports = () => {
 	welcome({
 		title: `rpn-calculator-cli`,
 		tagLine: `by Kyle Samuel`,
-		description: pkg.description,
+		description:
+			pkg.description + " Input 'ac' to clear history or 'q' to exit.",
 		version: pkg.version,
 		bgColor: '#0072CE',
 		color: '#000000',
