@@ -3,6 +3,7 @@ const {
 	validMathOperators,
 	validOperatorsArray
 } = require('./valid-math-operators');
+
 //Validates and processes user inputted operators for a Reverse Polish notation style calculator.
 
 const isOperator = element => {
