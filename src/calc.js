@@ -1,4 +1,4 @@
-const { handleNumber: pushNumberToStack } = require('./helpers/handle-number');
+const { pushNumberToStack } = require('./helpers/push-number-to-stack');
 const { isNumber } = require('./helpers/is-number');
 const {
 	isOperator,
@@ -17,15 +17,20 @@ const parseUserInput = (userInputArray, currentStack = []) => {
 	const element = userInputArray.shift();
 
 	if (isNumber(element)) {
-		pushNumberToStack(element, currentStack);
-		return parseUserInput(userInputArray, currentStack);
+		const newStack = pushNumberToStack(element, currentStack);
+		if (newStack !== undefined) {
+			return parseUserInput(userInputArray, newStack);
+		} else {
+			return parseUserInput(userInputArray, currentStack);
+		}
 	}
+
 	if (isOperator(element)) {
 		const newStack = pushCalculationToStack(element, currentStack);
-		if (newStack === undefined) {
-			return parseUserInput(userInputArray, currentStack);
-		} else {
+		if (newStack !== undefined) {
 			return parseUserInput(userInputArray, newStack);
+		} else {
+			return parseUserInput(userInputArray, currentStack);
 		}
 	}
 
