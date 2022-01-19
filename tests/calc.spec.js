@@ -1,4 +1,5 @@
 const parseUserInput = require('../src/calc');
+
 describe('calc.js', () => {
 	it('Expects 3 3 + to equal 6', () => {
 		const answerObject = parseUserInput([3, 3, '+']);
@@ -9,18 +10,7 @@ describe('calc.js', () => {
 	});
 
 	it('Expects 3 3 + to equal 6 iteratively', () => {
-		const {
-			currentStack: firstIterationCS,
-			currentAnswer: firstIterationAnswer
-		} = parseUserInput([3]);
-
-		const { currentStack: secondIterationCS } = parseUserInput(
-			[firstIterationAnswer],
-			firstIterationCS
-		);
-
-		const finalAnswerObject = parseUserInput(['+'], secondIterationCS);
-
+		const finalAnswerObject = iterateInputs([3]);
 		expect(finalAnswerObject).toEqual({
 			currentAnswer: 6,
 			currentStack: [6]
@@ -42,3 +32,18 @@ describe('calc.js', () => {
 		});
 	});
 });
+
+const iterateInputs = numberArray => {
+	const {
+		currentStack: firstIterationCS,
+		currentAnswer: firstIterationAnswer
+	} = parseUserInput([array]);
+
+	const { currentStack: secondIterationCS } = parseUserInput(
+		[firstIterationAnswer],
+		firstIterationCS
+	);
+
+	const finalAnswerObject = parseUserInput(['+'], secondIterationCS);
+	return finalAnswerObject;
+};
