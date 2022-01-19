@@ -1,22 +1,22 @@
-const { handleNumber } = require('../../src/helpers/handle-number');
+const { pushNumberToStack } = require('../../src/helpers/push-number-to-stack');
 
-describe('Handle Number', () => {
+describe('pushNumberToStack', () => {
 	it('Converts a valid string integer to a number and pushes it onto the stack.', () => {
 		validStringInteger = '3';
 		stack = [];
-		handleNumber(validStringInteger, stack);
+		pushNumberToStack(validStringInteger, stack);
 		expect(stack[0]).toEqual(3);
 	}),
 		it('Pushes a valid integer onto the stack', () => {
 			validInteger = 3;
 			stack = [2, 4, 7];
-			handleNumber(validInteger, stack);
+			pushNumberToStack(validInteger, stack);
 			expect(stack[stack.length - 1]).toEqual(3);
 		});
 	it("Doesn't push NaN to the stack", () => {
 		notANumber = 'Not a Number';
 		stack = [];
-		handleNumber(notANumber, stack);
+		pushNumberToStack(notANumber, stack);
 		expect(stack.length).toEqual(0);
 	});
 });
