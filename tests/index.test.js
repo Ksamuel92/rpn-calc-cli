@@ -19,7 +19,6 @@ describe('RPN Calculator', () => {
 	});
 	it('should calculate the resulting array and return the current answer and current callstack', async () => {
 		let { userInputArray } = { userInputArray: [3, 3, '+'] };
-		console.log(parseUserInput);
 		let calculation = await parseUserInput(userInputArray);
 		expect(calculation).toEqual({
 			currentAnswer: 6,
