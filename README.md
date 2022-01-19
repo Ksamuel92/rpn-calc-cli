@@ -21,7 +21,7 @@ Before you continue, make sure you meet the following requirements:
 npm i -g rpn-calculator-cli
 ```
 
-### Usage
+## Usage
 
 ```bash
 calculate <flags>
