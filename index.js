@@ -12,7 +12,6 @@ const cli = require('./utils/cli');
 const log = require('./utils/log');
 const inquirer = require('inquirer');
 const parseUserInput = require('./src/calc');
-const { run } = require('jest');
 
 const input = cli.input;
 const flags = cli.flags;
