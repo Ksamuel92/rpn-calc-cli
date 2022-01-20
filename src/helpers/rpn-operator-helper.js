@@ -11,7 +11,7 @@ const isOperator = element => {
 };
 
 const pushCalculationToStack = (operator, stack) => {
-	if (stack.length >= 2 && validMathOperators[operator]) {
+	if (stack.length >= 2 && isOperator(operator)) {
 		const [a, b] = popTwoElementsOff(stack);
 		const operationResult = validMathOperators[operator](a, b);
 		stack.push(operationResult);
