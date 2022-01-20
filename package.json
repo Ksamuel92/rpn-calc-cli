@@ -1,7 +1,7 @@
 {
 	"name": "rpn-calc-cli",
 	"description": "A Reverse Polish notation calculator for the command line.",
-	"version": "0.0.5",
+	"version": "0.1.6",
 	"license": "MIT",
 	"bin": {
 		"rpn-calculator-cli": "index.js",
@@ -17,7 +17,7 @@
     "url": "https://github.com/Ksamuel92/rpn-calculator-cli"
   },
 	"keywords": [
-		"rpn-calculator-cli",
+		"rpn-calc-cli",
 		"Kyle Samuel"
 	],
 	"files": [
