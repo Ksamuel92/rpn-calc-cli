@@ -5,7 +5,7 @@ const unhandled = require('cli-handle-unhandled');
 module.exports = () => {
 	unhandled();
 	welcome({
-		title: `rpn-calculator-cli`,
+		title: `rpn-calc-cli`,
 		tagLine: `by Kyle Samuel`,
 		description:
 			pkg.description + " Input 'ac' to clear history or 'q' to exit.",
