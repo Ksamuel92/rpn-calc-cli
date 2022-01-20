@@ -50,6 +50,7 @@ const calculator = async (isInitialized = false, userStack = []) => {
 		userInputArray,
 		userStack
 	);
+
 	if (currentAnswer === undefined) return calculator(isInitialized);
 
 	showStack
