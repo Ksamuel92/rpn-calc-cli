@@ -1,4 +1,4 @@
-const { popTwoElementsOff } = require('../../src/helpers/pop-two-elements-off');
+const { popTwoElementsOff } = require('../../lib/helpers/pop-two-elements-off');
 const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
 
 describe('popTwoElementsOff', () => {

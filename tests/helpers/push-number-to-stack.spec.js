@@ -1,4 +1,4 @@
-const { pushNumberToStack } = require('../../src/helpers/push-number-to-stack');
+const { pushNumberToStack } = require('../../lib/helpers/push-number-to-stack');
 
 describe('pushNumberToStack', () => {
 	it('Converts a valid string integer to a number and pushes it onto the stack.', () => {

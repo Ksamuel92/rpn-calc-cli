@@ -1,4 +1,4 @@
-const { isNumber } = require('../../src/helpers/is-number');
+const { isNumber } = require('../../lib/helpers/is-number');
 
 describe('isNumber', () => {
 	it('returns true when a number type is a number', () => {

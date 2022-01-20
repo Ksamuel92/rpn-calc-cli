@@ -1,7 +1,7 @@
 const {
 	isOperator,
 	pushCalculationToStack
-} = require('../../src/helpers/rpn-operator-helper');
+} = require('../../lib/helpers/rpn-operator-helper');
 const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
 
 describe('rpn-operator-helper', () => {

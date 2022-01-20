@@ -11,7 +11,7 @@ const init = require('./utils/init');
 const cli = require('./utils/cli');
 const log = require('./utils/log');
 const inquirer = require('inquirer');
-const parseUserInput = require('./src/calc');
+const parseUserInput = require('./lib/calc');
 
 const input = cli.input;
 const flags = cli.flags;

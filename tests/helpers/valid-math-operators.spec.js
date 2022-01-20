@@ -1,7 +1,7 @@
 const {
 	validMathOperators,
 	validOperatorsArray
-} = require('../../src/helpers/valid-math-operators');
+} = require('../../lib/helpers/valid-math-operators');
 
 describe('valid-math-operators', () => {
 	test('validMathOperators should invoke a function when a valid operator is provided', () => {

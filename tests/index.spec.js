@@ -1,4 +1,4 @@
-const parseUserInput = require('../src/calc');
+const parseUserInput = require('../lib/calc');
 const { stdin } = require('mock-stdin');
 
 describe('RPN Calculator', () => {

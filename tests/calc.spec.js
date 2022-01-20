@@ -1,4 +1,4 @@
-const parseUserInput = require('../src/calc');
+const parseUserInput = require('../lib/calc');
 
 describe('calc.js', () => {
 	it('Expects 3 3 + to equal 6', () => {
